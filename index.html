@@ -1,198 +1,831 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>3D旋转效果</title>
-		<link rel="stylesheet" href="http://unpkg.com/layui@2.6.8/dist/css/layui.css" />
-		<link rel="stylesheet" href="./css/tab1.css" />
-		<link rel="stylesheet" href="./css/tab2.css" />
-		<link rel="stylesheet" href="./css/tab3.css" />
-		<link rel="stylesheet" href="./css/tab4.css" />
-	</head>
-	<style type="text/css">
-		body {
-			margin: 0;
-			padding: 0;
-			background-position: center;
-			width: 100%;
-			height: 100%;
-			background-size: 100% 100%;
-			background: linear-gradient(0deg, #3082b1 0%, #3082b1 100%);
-			overflow: hidden;
-		}
-		li {
-			list-style: none;
-		}
-		ul {
-			margin: 0;
-			padding: 0;
-		}
-		.contentbox {
-			width: 1000px;
-			margin: auto;
-			margin-top: 2em;
-			clear: left;
-		}
-		.layui-tab-title {
-			/* text-align: center; */
-		}
-	</style>
-	<body>
-		<div class="contentbox">
-			<div class="layui-tab">
-				<ul class="layui-tab-title">
-					<li class="layui-this">基本介绍</li>
-					<li>快乐源泉2</li>
-					<li>遇见北京</li>
-					<li>爱的魔方</li>
-					<li>订单管理</li>
-				</ul>
-				<div class="layui-tab-content">
-					<div class="layui-tab-item layui-show">
-						<div class="qcontainer">
-							<div class="film">
-								<div class="face front">
-									<img src="images/photo01.jpg" />
-								</div>
-								<div class="face back"><h3>这是老大!!</h3></div>
-							</div>
-						</div>
-						<div class="qcontainer">
-							<div class="film">
-								<div class="face front">
-									<img src="images/photo02.jpg" />
-								</div>
-								<div class="face back"><h3>这是大姐头!!</h3></div>
-							</div>
-						</div>
-						<div class="qcontainer">
-							<div class="film">
-								<div class="face front">
-									<img src="images/photo03.jpg" />
-								</div>
-								<div class="face back"><h3>这是小清!!</h3></div>
-							</div>
-						</div>
-						<div class="qcontainer">
-							<div class="film">
-								<div class="face front">
-									<img src="images/photo04.jpg" />
-								</div>
-								<div class="face back"><h3>这是学霸!!</h3></div>
-							</div>
-						</div>
-					</div>
-					<div class="layui-tab-item">
-						<div class="content">
-							<div class="box">
-								<img
-									src="https://img2.baidu.com/it/u=3525963429,447969579&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=800"
-									alt=""
-									srcset="" />
-							</div>
-							<div class="box">
-								<img
-									src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F10%2F20150510034724_BVJrW.thumb.400_0.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140908&t=cb5a6281142a753d12b5ddd3b9ee9101"
-									alt=""
-									srcset="" />
-							</div>
-							<div class="box">
-								<img
-									src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F03%2F20160703091947_fe8VH.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140908&t=a444d81918717c3420a5e9c50db33afe"
-									alt=""
-									srcset="" />
-							</div>
-							<div class="box">
-								<img
-									src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F07%2F20200407125923_wgmcf.thumb.400_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140909&t=ded0c8fa15d09e5900f8b5213a6a56bf"
-									alt=""
-									srcset="" />
-							</div>
-							<div class="box">
-								<img
-									src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201506%2F30%2F20150630225114_CYRHE.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140909&t=8c69ce235a7d2e6d1d7820dc8e7e68e9"
-									alt=""
-									srcset="" />
-							</div>
-						</div>
-					</div>
-					<div class="layui-tab-item">
-						<div class="container">
-							<div class="galleries">
-								<span style="--i: 1">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
+<html lang="en">
 
-								<span style="--i: 2">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-								<span style="--i: 3">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
+  <title>深圳智泓信息技术有限公司</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <!--引用百度地图API-->
+  <!-- <style type="text/css">
+  html,body{margin:0;padding:0;}
+  .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+  .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script> -->
+  <style>
+    #container {
+      width: 400px;
+      height: 400px;
+    }
+  </style>
 
-								<span style="--i: 4">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
 
-								<span style="--i: 5">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
 
-								<span style="--i: 6">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/line-icons.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/nivo-lightbox.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/slicknav.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
-								<span style="--i: 7">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
+</head>
 
-								<span style="--i: 8">
-									<img src="./images/p01.jpg" alt="galleries" />
-								</span>
-							</div>
+<body>
 
-							<div class="arrows">
-								<div class="arrow prev"></div>
-								<div class="arrow next"></div>
-							</div>
-						</div>
-					</div>
-					<div class="layui-tab-item tab4">
-						<div class="container">
-							<div class="q1">
-								<img src="./images/photo01.jpg" />
-							</div>
-							<div class="h2">
-								<img src="./images/photo01.jpg" />
-							</div>
-							<div class="z3">
-								<img src="./images/photo01.jpg" />
-							</div>
-							<div class="y4">
-								<img src="./images/photo01.jpg" />
-							</div>
-							<div class="s5">
-								<img src="./images/photo01.jpg" />
-							</div>
-							<div class="x6">
-								<img src="./images/photo01.jpg" />
-							</div>
-						</div>
-					</div>
-					<div class="layui-tab-item">5</div>
-				</div>
-			</div>
-		</div>
-		<script>
-			layui.use('element', function () {
-				var element = layui.element
-			})
-		</script>
-		<script src="https://unpkg.com/layui@2.6.8/dist/layui.js"></script>
-		<script type="text/javascript" src="./js/jquery.min.js"></script>
-		<script src="./js/tab3.js"></script>
-		<!-- <script src="./js/snow.js"></script> -->
-	</body>
+  <!-- Header Section Start -->
+  <header id="hero-area" data-stellar-background-ratio="0.5">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand"><img class="img-fulid" src="img/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+            aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lnr lnr-menu"></i>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#hero-area">首页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#services">关于智泓</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#features">产品中心</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link page-scroll" href="#pricing">合作伙伴</a>
+              </li> -->
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#portfolios">成功案例</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link page-scroll" href="#team">新闻中心</a>
+              </li> -->
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#blog">解决方案</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link page-scroll" href="#contact">联系我们</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index2.html">英/En</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Start -->
+      <ul class="mobile-menu">
+        <li>
+          <a class="page-scroll" href="#hero-area">首页</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#services">关于智泓</a>
+        </li>
+
+
+        <li>
+          <a class="page-scroll" href="#features">产品中心</a>
+        </li>
+        <!-- <li>
+              <a class="page-scroll" href="#pricing">合作伙伴</a>
+            </li> -->
+        <li>
+          <a class="page-scroll" href="#portfolios">成功案例</a>
+        </li>
+        <!-- <li>
+              
+              <a class="page-scroll" href="#team">新闻中心</a>
+            </li> -->
+        <li>
+          <a class="page-scroll" href="#blog">解决方案</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#contact">联系我们</a>
+        </li>
+      </ul>
+      <!-- Mobile Menu End -->
+
+    </nav>
+    <!-- Navbar End -->
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10">
+          <div class="contents text-center">
+            <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">创新、 服务、 引领、 共赢</h1>
+            <!-- <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">说的更少 做的更多</p> -->
+            <!-- <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header Section End -->
+
+  <!-- 关于智泓 -->
+  <!-- Services Section Start -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">关于智泓</h2>
+        <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+        <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">
+          公司致力于为中国制造型企业提供信息化、数字化领域的专业服务，包括研发制造系统大数据挖掘、用户行为分析系统建设、IT监控体系建设和专业运维
+          <br> 公司拥有自己的核心研发产品 -- 智泓数据分析系统，该系统帮助企业用数据驱动产品改进以及运营监控
+          <br>可实现多维度、精细化的统计分析，为业务决策提供强有力的数据支撑</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+            <div class="icon">
+              <i class="lnr lnr-pencil"></i>
+            </div>
+            <h4>先进的技术框架</h4>
+            <p>三层体系结构，面向对象的技术和组件化的组织形式。采用继承、封装和多态三个特性设计系统。采用SQL数据库，将所有信息数据以文件的方式存储于电子仓库中，并经过加密处理。</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
+            <div class="icon">
+              <i class="lnr lnr-code"></i>
+            </div>
+            <h4>强大的客户化技术</h4>
+            <p>先进的管理理念，支持并行工程与协同工作的研发管理体系，全面提升企业研发管理水平。支持个性化的定制开发，为企业定制工作流程、项目管理方式、编码规则等，增加系统的柔性。</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
+            <div class="icon">
+              <i class="lnr lnr-mustache"></i>
+            </div>
+            <h4>PLM系统实施能力</h4>
+            <p>成熟的企业咨询服务经验，众多大中型企业的成功实施经验，个性化的定制开发，保障系统成功实施。强大的实施队伍，专家级PDM实施与产品开发队伍，全面保障系统的适应性和稳定性和系统的升级更新。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services Section End -->
+
+
+  <!-- 产品中心 -->
+  <!-- Features Section Start -->
+  <section id="features" class="section" data-stellar-background-ratio="0.2">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">产品中心</h2>
+        <hr class="lines">
+        <p class="section-subtitle">PLM软件研究报告主要是通过对PLM软件行业的主要内容和配套条件，如市场调查、资源供应、建设规模、工艺路线、设备选型、环境影响、资金筹措、盈利能力等，从技术
+          、经济、工程等方面进行调查研究和分析比较，并对项目建成以后可能取得的财务、经济效益及社会影响进行预测</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-xs-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                <span class="icon">
+                  <i class="lnr lnr-rocket"></i>
+                </span>
+                <div class="text">
+                  <h4>强大的数据资源</h4>
+                  <p>依托国家发展改革委和国家信息中心系统丰富的数据资源，建成了独具特色和覆盖全面的产业监测体系。经十年构建完成完整的产业经济数据库系统（含30类大行业，1000多类子行业，5000多细分产品）</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                <span class="icon">
+                  <i class="lnr lnr-laptop-phone"></i>
+                </span>
+                <div class="text">
+                  <h4>行业覆盖范围广</h4>
+                  <p>具有市场前景好、行业竞争激烈和企业重组频繁等特征。在对行业进行综合分析的同时，还对其中重要的细分行业或产品进行单独分析。其信息量大，实用性强。</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                <span class="icon">
+                  <i class="lnr lnr-layers"></i>
+                </span>
+                <div class="text">
+                  <h4>内容全面、数据直观</h4>
+                  <p>报告以本年度最新数据的实证描述为基础，全面、深入、细致地分析各行业的市场供求、进出口形势、投资状况、发展趋势和政策取向以及主要企业的运营状况，提出富有见地的判断和投资建议</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                <span class="icon">
+                  <i class="lnr lnr-cog"></i>
+                </span>
+                <div class="text">
+                  <h4>深入的洞察力和预见力</h4>
+                  <p>对国际市场也一直在进行职业的观察和分析，更能洞察这些行业今后的发展方向、行业竞争格局的演变趋势以及技术标准、市场规模、潜在问题与行业发展的症结所在。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12">
+          <div class="show-box">
+            <img class="img-fulid" src="img/features/feature.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features Section End -->
+  <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+
+
+
+  <!-- Start Video promo Section -->
+  <section class="video-promo section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="video-promo-content text-center">
+            <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">请观看我们的介绍视频</h2>
+            <!-- <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci.</p> -->
+            <a href="./audio/Centric.mp4" class="video-popup wow fadeInUp" data-wow-duration="1000ms"
+              data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Video Promo Section -->
+
+  <!-- 成功案例 -->
+  <!-- Portfolio Section -->
+  <section id="portfolios" class="section">
+    <!-- Container Starts -->
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">成功案例</h2>
+        <hr class="lines">
+        <p class="section-subtitle">近几年，10多个行业，全国各个城市，每天众多用户在同步使用我们的软件……</p>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Portfolio Controller/Buttons -->
+          <div class="controls text-center">
+            <a class="filter active btn btn-common" data-filter="all">
+              所有行业
+            </a>
+            <a class="filter btn btn-common" data-filter=".design">
+              汽车＆零部件行业
+            </a>
+            <a class="filter btn btn-common" data-filter=".development">
+              高科电子行业
+            </a>
+            <a class="filter btn btn-common" data-filter=".print">
+              机械装备行业
+            </a>
+          </div>
+          <!-- Portfolio Controller/Buttons Ends-->
+        </div>
+
+        <!-- Portfolio Recent Projects -->
+        <div id="portfolio" class="row">
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img1.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img1.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img2.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img2.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img3.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img3.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img4.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img4.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img5.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img5.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img src="img/portfolio/img6.jpg" alt="" />
+                <a class="overlay lightbox" href="img/portfolio/img6.jpg">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container Ends -->
+  </section>
+  <!-- Portfolio Section Ends -->
+
+  <!-- Start Pricing Table Section -->
+  <!-- <div id="pricing" class="section pricing-section">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">合作伙伴</h2>
+          <hr class="lines">
+          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+
+        <div class="row pricing-tables">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="pricing-table">
+              <div class="pricing-details">
+                <h2>Free</h2>
+                <span>$00</span>
+                <ul>
+                  <li>Consectetur adipiscing</li>
+                  <li>Nunc luctus nulla et tellus</li>
+                  <li>Suspendisse quis metus</li>
+                  <li>Vestibul varius fermentum erat</li>
+                </ul>
+              </div>
+              <div class="plan-button">
+                <a href="#" class="btn btn-common">Get Plan</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="pricing-table">
+              <div class="pricing-details">
+                <h2>Popular</h2>
+                <span>$3.99</span>
+                <ul>
+                  <li>Consectetur adipiscing</li>
+                  <li>Nunc luctus nulla et tellus</li>
+                  <li>Suspendisse quis metus</li>
+                  <li>Vestibul varius fermentum erat</li>
+                </ul>
+              </div>
+              <div class="plan-button">
+                <a href="#" class="btn btn-common">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="pricing-table">
+              <div class="pricing-details">
+                <h2>Premium</h2>
+                <span>$9.50</span>
+                <ul>
+                  <li>Consectetur adipiscing</li>
+                  <li>Nunc luctus nulla et tellus</li>
+                  <li>Suspendisse quis metus</li>
+                  <li>Vestibul varius fermentum erat</li>
+                </ul>
+              </div>
+              <div class="plan-button">
+                <a href="#" class="btn btn-common">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+  <!-- End Pricing Table Section -->
+
+  <!-- Counter Section Start -->
+  <!-- <div class="counters section" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row"> 
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="facts-item">   
+              <div class="icon">
+                <i class="lnr lnr-clock"></i>
+              </div>             
+              <div class="fact-count">
+                <h3><span class="counter">1589</span></h3>
+                <h4>工作时间</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="facts-item">   
+              <div class="icon">
+                <i class="lnr lnr-briefcase"></i>
+              </div>            
+              <div class="fact-count">
+                <h3><span class="counter">699</span></h3>
+                <h4>完成项目</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="facts-item"> 
+              <div class="icon">
+                <i class="lnr lnr-user"></i>
+              </div>              
+              <div class="fact-count">
+                <h3><span class="counter">203</span></h3>
+                <h4>使用客户</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="facts-item"> 
+              <div class="icon">
+                <i class="lnr lnr-heart"></i>
+              </div>              
+              <div class="fact-count">
+                <h3><span class="counter">1689</span></h3>
+                <h4>获赞次数</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- Counter Section End -->
+
+  <!-- 新闻中心 -->
+  <!-- Team section Start -->
+  <!-- <section id="team" class="section">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">新闻中心</h2>
+          <hr class="lines">
+          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team1.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Jhon Doe</h4>
+                  <p>Chief Technical Officer</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team2.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Paul Kowalsy</h4>
+                  <p>CEO & Co-Founder</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team3.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">                  
+                  <h4 class="team-title">Emilly Williams</h4>
+                  <p>Business Manager</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img class="img-fulid" src="img/team/team4.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Patricia Green</h4>
+                  <p>Graphic Designer</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  <!-- Team section End -->
+
+  <!-- testimonial Section Start -->
+  <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12">
+          <div class="touch-slider owl-carousel owl-theme">
+            <div class="testimonial-item">
+              <img src="img/testimonial/customer1.jpg" alt="Client Testimonoal" />
+              <div class="testimonial-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor
+                  incididunt ut labore et</p>
+                <h3>Jone Deam</h3>
+                <span>Fondor of Jalmori</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <img src="img/testimonial/customer2.jpg" alt="Client Testimonoal" />
+              <div class="testimonial-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor
+                  incididunt ut labore et</p>
+                <h3>Oidila Matik</h3>
+                <span>President Lexo Inc</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <img src="img/testimonial/customer3.jpg" alt="Client Testimonoal" />
+              <div class="testimonial-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor
+                  incididunt ut labore et</p>
+                <h3>Alex Dattilo</h3>
+                <span>CEO Optima Inc</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <img src="img/testimonial/customer4.jpg" alt="Client Testimonoal" />
+              <div class="testimonial-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor
+                  incididunt ut labore et</p>
+                <h3>Paul Kowalsy</h3>
+                <span>CEO & Founder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- testimonial Section Start -->
+
+  <!-- Blog Section -->
+  <section id="blog" class="section">
+    <!-- Container Starts -->
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">解决方案</h2>
+        <hr class="lines">
+        <!-- <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p> -->
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <!-- <div class="blog-item-img">
+                <a href="#">
+                  <img src="img/blog/img1.jpg" alt="">
+                </a>                
+              </div> -->
+            <div class="blog-item-text">
+              <!-- <div class="meta-tags">
+                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
+                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
+                </div> -->
+              <h3>
+                <a href="#">产品/项目咨询</a>
+              </h3>
+              <p>
+                通过业务场景的使用监控，帮助企业了解每个业务场景的使用频次和使用效率，为业务场景优化和投资方向提供决策依据
+                <br>
+                数据操作全程监控，保护企业知识资产
+                <br>
+                通过大数据分析，为产品维护提供强有力的数据支撑。
+
+                <br>
+                CAD工具产品咨询
+                <br>
+              </p>
+              <!-- <a href="#" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a> -->
+            </div>
+          </div>
+          <!-- Blog Item Wrapper Ends-->
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <!-- <div class="blog-item-img">
+                <a href="#">
+                  <img src="img/blog/img2.jpg" alt="">
+                </a>                
+              </div> -->
+            <div class="blog-item-text">
+              <!-- <div class="meta-tags">
+                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
+                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
+                </div> -->
+              <h3>
+                <a href="#">先进技术服务
+                </a>
+              </h3>
+              <p>
+                通过对用户在Teamcenter应用平台上的行为监测获得大量数据信息，深度洞察用户数据，并进行大数据分析，帮助企业用数据驱动产品改进及运营监控，可实现多维度、精细化的统计分析，并根据分析指标以系统的方式进行多视角展示。
+              </p>
+              <!-- <a href="#" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a> -->
+            </div>
+          </div>
+          <!-- Blog Item Wrapper Ends-->
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+          <!-- Blog Item Starts -->
+          <div class="blog-item-wrapper">
+            <!-- <div class="blog-item-img">
+                <a href="#">
+                  <img src="img/blog/img3.jpg" alt="">
+                </a>                
+              </div> -->
+            <div class="blog-item-text">
+              <!-- <div class="meta-tags">
+                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
+                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
+                </div>  -->
+              <h3>
+                <a href="#">系统监控和运维
+                </a>
+              </h3>
+              <p>
+                通过设置预定的监控指标阀值和高效的预警机制，以及响应预警措施，防止系统问题的发生。
+                <br>
+                系统出现问题时，可以快速定位和追溯。
+                <br>
+                实时高效的对系统运行状态进行评估和检查。
+                <br>
+                强大的报表系统帮助你及时了解系统的健康状况。
+
+              </p>
+              <!-- <a href="#" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a> -->
+            </div>
+          </div>
+          <!-- Blog Item Wrapper Ends-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- blog Section End -->
+
+  <!-- Contact Section Start -->
+  <section id="contact" class="section" data-stellar-background-ratio="-0.2">
+    <div class="contact-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="contact-us">
+              <h3>与我们联系</h3>
+              <div class="contact-address">
+                <p>浦东新区金港路318号 </p>
+                <!-- <p class="phone">Phone: <span>(+94 123 456 789)</span></p> -->
+                <p class="email">邮箱: <span>(xiaowei.wang@sz-deepwise.com)</span></p>
+              </div>
+              <div class="social-icons">
+                <ul>
+                  <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="contact-block">
+              <form id="contactForm">
+                <div class="row">
+                    <!-- 一、新建百度地图容器 -->
+                    <div class="col-md-12" id="container"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section End -->
+
+
+
+  <!-- Go To Top Link -->
+  <a href="#" class="back-to-top">
+    <i class="lnr lnr-arrow-up"></i>
+  </a>
+
+  <div id="loader">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="js/jquery-min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.mixitup.js"></script>
+  <script src="js/nivo-lightbox.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.nav.js"></script>
+  <script src="js/scrolling-nav.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/smoothscroll.js"></script>
+  <script src="js/jquery.slicknav.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/jquery.vide.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/form-validator.min.js"></script>
+  <script src="js/contact-form-script.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=81cbd75af307127364f0e6bca16432c5"></script>
+<!--四、异步初始化高德地图插件-->
+<script>
+  //初始化地图插件
+  window.onload = function () {
+    var map = new AMap.Map("container", {
+      zoom: 15, //设置地图显示的缩放级别
+      center: [121.611128, 31.254755] //设置地图中心点坐标
+    });
+
+    // 创建一个 Marker 实例：（标记点）
+    var marker = new AMap.Marker({
+      position: new AMap.LngLat(121.611128, 31.254755), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+      title: "位置标题"
+    });
+
+    // 将创建的点标记添加到已有的地图实例：
+    map.add(marker);
+  }
+</script>
+
+</script> -->
+
 </html>
